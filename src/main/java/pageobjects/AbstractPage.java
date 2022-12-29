@@ -12,7 +12,7 @@ public abstract class AbstractPage {
 
     public AbstractPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(200));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
 
     public WebDriver getDriver() {

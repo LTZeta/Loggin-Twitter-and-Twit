@@ -7,7 +7,11 @@ import org.testng.annotations.Test;
 import pageobjects.PhraseToTwit;
 import pageobjects.SearchPage;
 import pageobjects.SignIn;
+
+import java.util.Scanner;
+
 public class TwitSomething {
+
     private WebDriver driver;
 
     @BeforeClass
@@ -15,21 +19,29 @@ public class TwitSomething {
 
     @Test
     public void twitSomething(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Escribi tu email de twitter:");
+        String email = scanner.next();
+        System.out.println("Escribi tu contraseña de twitter:");
+        String password = scanner.next();
+        System.out.println("Escribi el tweet que deseas publicar:");
+        String tweet = scanner.next();
+
+
         SearchPage searchPage = new SearchPage(driver);
         searchPage.loadPage("https://www.twitter.com");
+        searchPage.getDriver().manage().window().maximize();
         searchPage.setLoginButton(By.xpath("//a[@class='css-4rbku5 css-18t94o4 css-1dbjc4n r-1niwhzg r-sdzlij r-1phboty r-rs99b7 r-1loqt21 r-2yi16 r-1qi8awa r-1ny4l3l r-ymttw5 r-o7ynqc r-6416eg r-lrvibr']"));
         searchPage.clickLoginButton();
-        searchPage.setLoginWithGoogle(By.xpath("//div[@class='nsm7Bb-HzV7m-LgbsSe  hJDwNd-SxQuSe i5vt6e-Ia7Qfc JGcpL-RbRzK']"));
-        searchPage.clickLoginWithGoogle();
-        searchPage.getDriver().manage().window().maximize();
 
         SignIn signIn = new SignIn(driver);
-        signIn.setEmailInput(By.id("identifierId"));
-        signIn.setPasswordInput(By.name("Passwd"));
-        signIn.signInWithGoogle("leituz1023@gmail.com","asddsa");
+        signIn.setEmailInput(By.xpath("//div[@class='css-1dbjc4n r-18u37iz r-16y2uox r-1wbh5a2 r-1wzrnnt r-1udh08x r-xd6kpl r-1pn2ns4 r-ttdzmv']//input[@name='text']"));
+        signIn.setPasswordInput(By.xpath("//input[@name='password']"));
+        signIn.signIn(email,password);
 
         PhraseToTwit twit = new PhraseToTwit(driver);
-        twit.twitThis("Estoy publicando esto automaticamente :v");
+        twit.twitThis(tweet);
     }
 
     @AfterClass

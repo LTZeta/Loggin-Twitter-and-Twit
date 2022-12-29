@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class SignIn extends AbstractPage{
     private static By emailInput;
     private static By passwordInput;
-    private final static By confirmYes = By.xpath("//div[@id='confirm_yes']");
 
 
 
@@ -18,13 +17,11 @@ public class SignIn extends AbstractPage{
     public SignIn(WebDriver driver){super(driver);}
 
 
-    public void signInWithGoogle(String email, String password){
+    public void signIn(String email, String password){
         getWait().until(ExpectedConditions.visibilityOfElementLocated(emailInput));
         getDriver().findElement(emailInput).sendKeys(email + Keys.ENTER);
         getWait().until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
         getDriver().findElement(passwordInput).sendKeys(password + Keys.ENTER);
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(confirmYes));
-        getDriver().findElement(confirmYes).sendKeys(Keys.ENTER);
     }
 
 
