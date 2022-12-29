@@ -9,7 +9,6 @@ public class SearchPage extends  AbstractPage{
 
     private static By loginButton;
     public SearchPage(WebDriver driver) { super(driver); }
-
     public void loadPage(String page){
         getDriver().get(page);
     }

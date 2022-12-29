@@ -9,13 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class SignIn extends AbstractPage{
     private static By emailInput;
     private static By passwordInput;
-
-
-
-
-
     public SignIn(WebDriver driver){super(driver);}
-
 
     public void signIn(String email, String password){
         getWait().until(ExpectedConditions.visibilityOfElementLocated(emailInput));

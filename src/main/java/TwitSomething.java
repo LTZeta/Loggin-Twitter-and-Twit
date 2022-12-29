@@ -16,7 +16,6 @@ public class TwitSomething {
 
     @BeforeClass
     public void initWebDriver() { driver = new ChromeDriver(); }
-
     @Test
     public void twitSomething(){
 
@@ -43,7 +42,7 @@ public class TwitSomething {
         PhraseToTwit twit = new PhraseToTwit(driver);
         twit.twitThis(tweet);
     }
-
     @AfterClass
     public void quitWebDriver() { driver.quit(); }
+
 }
