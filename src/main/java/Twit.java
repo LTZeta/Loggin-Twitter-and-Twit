@@ -1,12 +1,9 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
 import pageobjects.PhraseToTwit;
 import pageobjects.SearchPage;
 import pageobjects.SignIn;
-
-import java.util.Scanner;
 
 public class Twit {
 
