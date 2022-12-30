@@ -1,32 +1,32 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageobjects.PhraseToTwit;
 import pageobjects.SearchPage;
 import pageobjects.SignIn;
 
 import java.util.Scanner;
 
-public class TwitSomething {
+public class Twit {
 
     private WebDriver driver;
+    private String email;
+    private String password;
+    private String tweet;
+    private int audience;
 
-    @BeforeClass
+
+//    public void setUserData(){
+//        SetData setData = new SetData();
+//        setData.setAll();
+//    }
+
+
     public void initWebDriver() { driver = new ChromeDriver(); }
-    @Test
+
+
     public void twitSomething(){
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Escribi tu email de twitter:");
-        String email = scanner.next();
-        System.out.println("Escribi tu contraseña de twitter:");
-        String password = scanner.next();
-        System.out.println("Escribi el tweet que deseas publicar:");
-        String tweet = scanner.next();
-
 
         SearchPage searchPage = new SearchPage(driver);
         searchPage.loadPage("https://www.twitter.com");
@@ -40,9 +40,17 @@ public class TwitSomething {
         signIn.signIn(email,password);
 
         PhraseToTwit twit = new PhraseToTwit(driver);
-        twit.twitThis(tweet);
+        twit.twitThis(tweet,audience);
     }
-    @AfterClass
+
+
     public void quitWebDriver() { driver.quit(); }
 
+
+    public void setAll(String email, String password, int audience, String tweet){
+        this.email = email;
+        this.password = password;
+        this.audience = audience;
+        this.tweet = tweet;
+    }
 }
