@@ -14,8 +14,10 @@ public class SearchPage extends  AbstractPage{
     }
 
     public void clickLoginButton(){
+
         getWait().until(ExpectedConditions.visibilityOfElementLocated(loginButton));
         getDriver().findElement(loginButton).sendKeys(Keys.ENTER);
+
     }
 
     public void setLoginButton(By loginButton) {

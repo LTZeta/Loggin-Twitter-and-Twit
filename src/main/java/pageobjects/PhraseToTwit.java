@@ -17,6 +17,7 @@ public class PhraseToTwit extends AbstractPage{
     public PhraseToTwit(WebDriver driver){ super(driver); }
 
     public void twitThis (String phrase, int audience){
+
         getWait().until(ExpectedConditions.visibilityOfElementLocated(clickTextInput));
         getDriver().findElement(clickTextInput).click();
         getWait().until(ExpectedConditions.visibilityOfElementLocated(clickAudience));
@@ -33,5 +34,6 @@ public class PhraseToTwit extends AbstractPage{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
