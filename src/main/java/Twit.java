@@ -13,13 +13,6 @@ public class Twit {
     private String tweet;
     private int audience;
 
-
-//    public void setUserData(){
-//        SetData setData = new SetData();
-//        setData.setAll();
-//    }
-
-
     public void initWebDriver() { driver = new ChromeDriver(); }
 
 
