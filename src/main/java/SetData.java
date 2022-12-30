@@ -3,12 +3,14 @@ import java.util.Scanner;
 public class SetData {
 
     public static void main(String[] args){
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Write your twitter email:");
         String email = scanner.next();
         System.out.println("Write your twitter password:");
         String password = scanner.next();
         int audience;
+
         boolean checkAudience = false;
         do {
             System.out.println("Choose audience. 1 for Everybody. 2 for Twitter Circle:");
@@ -17,6 +19,7 @@ public class SetData {
                 checkAudience = true;
             }
         } while (!checkAudience);
+
         System.out.println("Write the tweet you want to publish:");
         String tweet = scanner.next();
         scanner.close();
@@ -26,6 +29,7 @@ public class SetData {
         twit.initWebDriver();
         twit.twitSomething();
         twit.quitWebDriver();
+
     }
 
 }
