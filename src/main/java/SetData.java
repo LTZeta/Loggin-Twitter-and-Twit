@@ -1,10 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class SetData {
 
     public static void main(String[] args){
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Write your twitter email:");
         String email = scanner.next();
         System.out.println("Write your twitter password:");
@@ -25,11 +27,13 @@ public class SetData {
         scanner.close();
 
         Twit twit = new Twit();
-        twit.setAll(email, password, audience, tweet);
+        twit.setAll(email,
+                password,
+                audience,
+                tweet);
         twit.initWebDriver();
         twit.twitSomething();
         twit.quitWebDriver();
-
     }
 
 }

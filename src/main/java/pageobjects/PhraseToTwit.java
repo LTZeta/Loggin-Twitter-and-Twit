@@ -28,7 +28,7 @@ public class PhraseToTwit extends AbstractPage{
             webElementList.get(1).click();
         }
         getDriver().findElement(clickTextInput).click();
-        getDriver().findElement(clickTextInput).sendKeys(phrase + Keys.CONTROL + Keys.ENTER);
+        getDriver().findElement(clickTextInput).sendKeys(phrase+Keys.CONTROL, Keys.ENTER);
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
